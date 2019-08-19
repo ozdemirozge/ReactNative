@@ -3,9 +3,17 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "react-native start",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint ."
+    "run-android": "react-native run-android",
+    "run-iphone": "react-native run-ios --simulator='iPhone 6'",
+    "run-iphone8": "react-native run-ios --simulator='iPhone 8'",
+    "run-iphone5": "react-native run-ios --simulator='iPhone 5s'",
+    "run-iPhoneX": "react-native run-ios —-simulator='iPhone X'",
+    "run-ipad": "react-native run-ios --simulator 'iPad Air'",
+    "release-android": "cd android && ./gradlew assembleRelease",
+    "release-android-bundle": "cd android && ./gradlew bundleRelease",
+    "release-android-force": "rm android/app/src/main/assets/index.android.bundle && react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res && cd android && ./gradlew clean && ./gradlew assembleRelease"
   },
   "dependencies": {
     "react": "16.8.6",
